@@ -1,0 +1,15 @@
+# position 1
+*filter
+# position 2
+:INPUT DROP
+# position 3
+:FORWARD DROP
+# position 4
+:OUTPUT ACCEPT
+# position 50
+-A INPUT -p tcp -m tcp -m multiport --dports 22 -m comment --comment "connect to ssh" -j ACCEPT
+-A INPUT -p tcp -m tcp -m multiport --dports 443 -m comment --comment "https" -j ACCEPT
+-A INPUT -p tcp -m tcp -m multiport --dports 8083 -m comment --comment "https" -j ACCEPT
+-A INPUT -m state --state RELATED,ESTABLISHED -m comment --comment "established" -j ACCEPT
+# position 100
+COMMIT
