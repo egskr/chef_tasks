@@ -1,0 +1,11 @@
+server {
+  listen   80;
+  server_name  epplkraw0381t1;
+
+  access_log  /var/log/nginx/localhost.access.log;
+
+  location / {
+    root   /usr/share/nginx/html;
+    index  index.html index.htm;
+  }
+}

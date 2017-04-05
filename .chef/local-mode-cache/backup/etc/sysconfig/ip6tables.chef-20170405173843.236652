@@ -1,0 +1,13 @@
+# position 1
+*filter
+# position 2
+:INPUT DROP
+# position 3
+:FORWARD DROP
+# position 4
+:OUTPUT ACCEPT
+# position 50
+-A INPUT -m state --state RELATED,ESTABLISHED -m comment --comment "established" -j ACCEPT
+-A INPUT -p ipv6-icmp -m comment --comment "ipv6_icmp" -j ACCEPT
+# position 100
+COMMIT
