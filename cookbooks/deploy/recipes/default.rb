@@ -3,8 +3,8 @@
 #
 # Copyright:: 2017, The Author Yegor, All Rights Reserved.
 
-remote_file node[:jboss][:zip_app] do
-  source node[:jboss][:app_url]
+remote_file node[:deploy][:zip_app] do
+  source node[:deploy][:app_url]
   owner node[:jboss][:user]
   group node[:jboss][:group]
   action :create_if_missing
@@ -15,7 +15,7 @@ package 'unzip' do
 end
 
 execute 'unarchive_app' do
-  command "unzip #{node[:jboss][:zip_app]} -d #{node[:jboss][:jboss_home]}/standalone/deployments/"
+  command "unzip #{node[:deploy][:zip_app]} -d #{node[:jboss][:jboss_home]}/standalone/deployments/"
   not_if { ::File.directory? ("#{node[:jboss][:jboss_home]}/standalone/deployments/testweb/") }
 end
 
