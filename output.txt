@@ -401,8 +401,6 @@ node1 [2017-04-10T12:42:15+01:00] INFO: Sending resource update report (run-id: 
 
 
 
-
-
 [vagrant@node1 opt]$ curl -IL localhost:8080/hudson/
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
