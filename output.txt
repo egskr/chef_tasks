@@ -1,0 +1,414 @@
+knife bootstrap node1 -E chef-dev -r role[JBOSS] -u root -P vagrant
+
+node1 -----> Existing Chef installation detected
+node1 Starting the first Chef Client run...
+node1 [2017-04-10T12:39:28+01:00] INFO: Forking chef instance to converge...
+node1 Starting Chef Client, version 12.19.36[0m
+node1 [2017-04-10T12:39:28+01:00] INFO: *** Chef 12.19.36 ***
+node1 [2017-04-10T12:39:28+01:00] INFO: Platform: x86_64-linux
+node1 [2017-04-10T12:39:28+01:00] INFO: Chef-client pid: 15044
+node1 [2017-04-10T12:39:33+01:00] INFO: Setting the run_list to ["role[JBOSS]"] from CLI options
+node1 [2017-04-10T12:39:33+01:00] INFO: Run List is [role[JBOSS]]
+node1 [2017-04-10T12:39:33+01:00] INFO: Run List expands to [jboss, deploy]
+node1 [2017-04-10T12:39:33+01:00] INFO: Starting Chef Run for node1
+node1 [2017-04-10T12:39:33+01:00] INFO: Running start handlers
+node1 [2017-04-10T12:39:33+01:00] INFO: Start handlers complete.
+node1 [2017-04-10T12:39:33+01:00] INFO: HTTP Request Returned 404 Not Found: 
+node1 [2017-04-10T12:39:33+01:00] INFO: Error while reporting run start to Data Collector. URL: https://chef_server/organizations/egor/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+node1 resolving cookbooks for run list: ["jboss", "deploy"][0m
+node1 [2017-04-10T12:39:33+01:00] INFO: Loading cookbooks [jboss@0.1.0, java@1.48.0, apt@6.0.1, windows@3.0.5, ohai@5.0.3, homebrew@3.0.0, deploy@0.1.0]
+node1 Synchronizing Cookbooks:[0m
+node1   - jboss (0.1.0)[0m
+node1   - java (1.48.0)[0m
+node1   - apt (6.0.1)[0m
+node1   - ohai (5.0.3)[0m
+node1   - homebrew (3.0.0)[0m
+node1   - windows (3.0.5)[0m
+node1   - deploy (0.1.0)[0m
+node1 Installing Cookbook Gems:[0m
+node1 Compiling Cookbooks...[0m
+node1 Converging 20 resources[0m
+node1 Recipe: java::notify[0m
+node1   * log[jdk-version-changed] action nothing[2017-04-10T12:39:34+01:00] INFO: Processing log[jdk-version-changed] action nothing (java::notify line 29)
+node1  (skipped due to action :nothing)
+node1 Recipe: java::openjdk[0m
+node1   * yum_package[java-1.7.0-openjdk] action install[2017-04-10T12:39:34+01:00] INFO: Processing yum_package[java-1.7.0-openjdk] action install (java::openjdk line 53)
+node1 [2017-04-10T12:39:37+01:00] INFO: yum_package[java-1.7.0-openjdk] installing java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el6_8 from base repository
+node1 [2017-04-10T12:41:10+01:00] INFO: yum_package[java-1.7.0-openjdk] installed java-1.7.0-openjdk at 1.7.0.131-2.6.9.0.el6_8
+node1 
+node1     [32m- install version 1.7.0.131-2.6.9.0.el6_8 of package java-1.7.0-openjdk[0m
+node1 [0m[2017-04-10T12:41:10+01:00] INFO: yum_package[java-1.7.0-openjdk] sending write action to log[jdk-version-changed] (immediate)
+node1 Recipe: java::notify[0m
+node1   * log[jdk-version-changed] action write[2017-04-10T12:41:10+01:00] INFO: Processing log[jdk-version-changed] action write (java::notify line 29)
+node1 [2017-04-10T12:41:10+01:00] INFO: A new version of java was installed
+node1 
+node1   
+node1 [0mRecipe: java::openjdk[0m
+node1   * yum_package[java-1.7.0-openjdk-devel] action install[2017-04-10T12:41:10+01:00] INFO: Processing yum_package[java-1.7.0-openjdk-devel] action install (java::openjdk line 53)
+node1 [2017-04-10T12:41:11+01:00] INFO: yum_package[java-1.7.0-openjdk-devel] installing java-1.7.0-openjdk-devel-1.7.0.131-2.6.9.0.el6_8 from base repository
+node1 [2017-04-10T12:41:42+01:00] INFO: yum_package[java-1.7.0-openjdk-devel] installed java-1.7.0-openjdk-devel at 1.7.0.131-2.6.9.0.el6_8
+node1 
+node1     [32m- install version 1.7.0.131-2.6.9.0.el6_8 of package java-1.7.0-openjdk-devel[0m
+node1 [0m[2017-04-10T12:41:42+01:00] INFO: yum_package[java-1.7.0-openjdk-devel] sending write action to log[jdk-version-changed] (immediate)
+node1 Recipe: java::notify[0m
+node1   * log[jdk-version-changed] action write[2017-04-10T12:41:42+01:00] INFO: Processing log[jdk-version-changed] action write (java::notify line 29)
+node1 [2017-04-10T12:41:42+01:00] INFO: A new version of java was installed
+node1 
+node1   
+node1 [0mRecipe: java::openjdk[0m
+node1   * java_alternatives[set-java-alternatives] action set[2017-04-10T12:41:42+01:00] INFO: Processing java_alternatives[set-java-alternatives] action set (java::openjdk line 59)
+node1 
+node1     [32m- Set alternative for appletviewer[0m
+node1     [32m- Set alternative for apt[0m
+node1     [32m- Set alternative for extcheck[0m
+node1     [32m- Set alternative for idlj[0m
+node1     [32m- Set alternative for jar[0m
+node1     [32m- Set alternative for jarsigner[0m
+node1     [32m- Set alternative for java[0m
+node1     [32m- Set alternative for javac[0m
+node1     [32m- Add alternative for javadoc[0m
+node1     [32m- Add alternative for javah[0m
+node1     [32m- Add alternative for javap[0m
+node1     [32m- Add alternative for jcmd[0m
+node1     [32m- Add alternative for jconsole[0m
+node1     [32m- Add alternative for jdb[0m
+node1     [32m- Add alternative for jhat[0m
+node1     [32m- Add alternative for jinfo[0m
+node1     [32m- Add alternative for jmap[0m
+node1     [32m- Add alternative for jps[0m
+node1     [32m- Add alternative for jrunscript[0m
+node1     [32m- Add alternative for jsadebugd[0m
+node1     [32m- Add alternative for jstack[0m
+node1     [32m- Add alternative for jstat[0m
+node1     [32m- Add alternative for jstatd[0m
+node1     [32m- Add alternative for keytool[0m
+node1     [32m- Add alternative for native2ascii[0m
+node1     [32m- Add alternative for orbd[0m
+node1     [32m- Add alternative for pack200[0m
+node1     [32m- Add alternative for policytool[0m
+node1     [32m- Add alternative for rmic[0m
+node1     [32m- Add alternative for rmid[0m
+node1     [32m- Add alternative for rmiregistry[0m
+node1     [32m- Add alternative for schemagen[0m
+node1     [32m- Add alternative for serialver[0m
+node1     [32m- Add alternative for servertool[0m
+node1     [32m- Add alternative for tnameserv[0m
+node1     [32m- Add alternative for unpack200[0m
+node1     [32m- Add alternative for wsgen[0m
+node1     [32m- Add alternative for wsimport[0m
+node1     [32m- Add alternative for xjc[0m
+node1 [0mRecipe: java::set_java_home[0m
+node1   * directory[/etc/profile.d] action create[2017-04-10T12:41:51+01:00] INFO: Processing directory[/etc/profile.d] action create (java::set_java_home line 19)
+node1  (up to date)
+node1   * template[/etc/profile.d/jdk.sh] action create[2017-04-10T12:41:51+01:00] INFO: Processing template[/etc/profile.d/jdk.sh] action create (java::set_java_home line 23)
+node1  (up to date)
+node1 Recipe: jboss::install[0m
+node1   * group[jboss] action create[2017-04-10T12:41:51+01:00] INFO: Processing group[jboss] action create (jboss::install line 3)
+node1  (up to date)
+node1   * linux_user[jboss] action create[2017-04-10T12:41:51+01:00] INFO: Processing linux_user[jboss] action create (jboss::install line 7)
+node1  (up to date)
+node1   * remote_file[/tmp/jboss-as-7.1.1.Final.tar.gz] action create_if_missing[2017-04-10T12:41:51+01:00] INFO: Processing remote_file[/tmp/jboss-as-7.1.1.Final.tar.gz] action create_if_missing (jboss::install line 13)
+node1  (up to date)
+node1   * execute[extract_jboss] action run[2017-04-10T12:41:51+01:00] INFO: Processing execute[extract_jboss] action run (jboss::install line 20)
+node1 [2017-04-10T12:41:54+01:00] INFO: execute[extract_jboss] ran successfully
+node1 
+node1     [32m- execute tar xzf /tmp/jboss-as-7.1.1.Final.tar.gz -C /opt[0m
+node1 [0mRecipe: jboss::configure[0m
+node1   * execute[change ownership to jboss user] action run[2017-04-10T12:41:54+01:00] INFO: Processing execute[change ownership to jboss user] action run (jboss::configure line 1)
+node1 [2017-04-10T12:41:54+01:00] INFO: execute[change ownership to jboss user] ran successfully
+node1 
+node1     [32m- execute chown -R jboss:jboss /opt/jboss-as-7.1.1.Final[0m
+node1 [0m  * directory[/etc/jboss-as/] action create[2017-04-10T12:41:54+01:00] INFO: Processing directory[/etc/jboss-as/] action create (jboss::configure line 6)
+node1 [2017-04-10T12:41:54+01:00] INFO: directory[/etc/jboss-as/] created directory /etc/jboss-as/
+node1 
+node1     [32m- create new directory /etc/jboss-as/[0m
+node1 [0m  * template[/etc/jboss-as/jboss-as.conf] action create[2017-04-10T12:41:55+01:00] INFO: Processing template[/etc/jboss-as/jboss-as.conf] action create (jboss::configure line 10)
+node1 [2017-04-10T12:41:55+01:00] INFO: template[/etc/jboss-as/jboss-as.conf] created file /etc/jboss-as/jboss-as.conf
+node1 
+node1     [32m- create new file /etc/jboss-as/jboss-as.conf[0m[2017-04-10T12:41:55+01:00] INFO: template[/etc/jboss-as/jboss-as.conf] updated file contents /etc/jboss-as/jboss-as.conf
+node1 
+node1     [32m- update content in file /etc/jboss-as/jboss-as.conf from none to ac2b3c[0m
+node1     [37m--- /etc/jboss-as/jboss-as.conf	2017-04-10 12:41:55.425823246 +0100[0m
+node1     [37m+++ /etc/jboss-as/.chef-jboss-as20170410-15044-as03ld.conf	2017-04-10 12:41:55.425823246 +0100[0m
+node1     [37m@@ -1 +1,19 @@[0m
+node1     [37m+# General configuration for the init.d scripts,[0m
+node1     [37m+# not necessarily for JBoss AS itself.[0m
+node1     [37m+[0m
+node1     [37m+# The username who should own the process.[0m
+node1     [37m+#[0m
+node1     [37m+ JBOSS_USER=jboss[0m
+node1     [37m+[0m
+node1     [37m+# The amount of time to wait for startup[0m
+node1     [37m+#[0m
+node1     [37m+ STARTUP_WAIT=20[0m
+node1     [37m+[0m
+node1     [37m+# The amount of time to wait for shutdown[0m
+node1     [37m+#[0m
+node1     [37m+ SHUTDOWN_WAIT=10[0m
+node1     [37m+[0m
+node1     [37m+# Location to keep the console log[0m
+node1     [37m+#[0m
+node1     [37m+# JBOSS_CONSOLE_LOG=/var/log/jboss-as/console.log[0m[2017-04-10T12:41:55+01:00] INFO: template[/etc/jboss-as/jboss-as.conf] owner changed to 0
+node1 [2017-04-10T12:41:55+01:00] INFO: template[/etc/jboss-as/jboss-as.conf] group changed to 0
+node1 
+node1     [32m- change owner from '' to 'root'[0m
+node1     [32m- change group from '' to 'root'[0m
+node1 [0m  * template[/etc/init.d/jboss] action create[2017-04-10T12:41:55+01:00] INFO: Processing template[/etc/init.d/jboss] action create (jboss::configure line 19)
+node1 [2017-04-10T12:41:55+01:00] INFO: template[/etc/init.d/jboss] created file /etc/init.d/jboss
+node1 
+node1     [32m- create new file /etc/init.d/jboss[0m[2017-04-10T12:41:55+01:00] INFO: template[/etc/init.d/jboss] updated file contents /etc/init.d/jboss
+node1 
+node1     [32m- update content in file /etc/init.d/jboss from none to 063f14[0m
+node1     [37m--- /etc/init.d/jboss	2017-04-10 12:41:55.466803052 +0100[0m
+node1     [37m+++ /etc/init.d/.chef-jboss20170410-15044-1qoak30	2017-04-10 12:41:55.466803052 +0100[0m
+node1     [37m@@ -1 +1,176 @@[0m
+node1     [37m+#!/bin/sh[0m
+node1     [37m+#[0m
+node1     [37m+# JBoss standalone control script[0m
+node1     [37m+#[0m
+node1     [37m+# chkconfig: - 80 20[0m
+node1     [37m+# description: JBoss AS Standalone[0m
+node1     [37m+# processname: standalone[0m
+node1     [37m+# pidfile: /var/run/jboss-as/jboss-as-standalone.pid[0m
+node1     [37m+# config: /etc/jboss-as/jboss-as.conf[0m
+node1     [37m+[0m
+node1     [37m+# Source function library.[0m
+node1     [37m+. /etc/init.d/functions[0m
+node1     [37m+[0m
+node1     [37m+# Load Java configuration.[0m
+node1     [37m+[ -r /etc/java/java.conf ] && . /etc/java/java.conf[0m
+node1     [37m+export JAVA_HOME[0m
+node1     [37m+[0m
+node1     [37m+# Load JBoss AS init.d configuration.[0m
+node1     [37m+if [ -z "$JBOSS_CONF" ]; then[0m
+node1     [37m+  JBOSS_CONF="/etc/jboss-as/jboss-as.conf"[0m
+node1     [37m+fi[0m
+node1     [37m+[0m
+node1     [37m+[ -r "$JBOSS_CONF" ] && . "${JBOSS_CONF}"[0m
+node1     [37m+[0m
+node1     [37m+# Set defaults.[0m
+node1     [37m+[0m
+node1     [37m+if [ -z "$JBOSS_HOME" ]; then[0m
+node1     [37m+  JBOSS_HOME=/opt/jboss-as-7.1.1.Final[0m
+node1     [37m+fi[0m
+node1     [37m+export JBOSS_HOME[0m
+node1     [37m+[0m
+node1     [37m+if [ -z "$JBOSS_PIDFILE" ]; then[0m
+node1     [37m+  JBOSS_PIDFILE=/var/run/jboss-as/jboss-as-standalone.pid[0m
+node1     [37m+fi[0m
+node1     [37m+export JBOSS_PIDFILE[0m
+node1     [37m+[0m
+node1     [37m+if [ -z "$JBOSS_CONSOLE_LOG" ]; then[0m
+node1     [37m+  JBOSS_CONSOLE_LOG=/var/log/jboss-as/console.log[0m
+node1     [37m+fi[0m
+node1     [37m+[0m
+node1     [37m+if [ -z "$STARTUP_WAIT" ]; then[0m
+node1     [37m+  STARTUP_WAIT=30[0m
+node1     [37m+fi[0m
+node1     [37m+[0m
+node1     [37m+if [ -z "$SHUTDOWN_WAIT" ]; then[0m
+node1     [37m+  SHUTDOWN_WAIT=30[0m
+node1     [37m+fi[0m
+node1     [37m+[0m
+node1     [37m+if [ -z "$JBOSS_CONFIG" ]; then[0m
+node1     [37m+  JBOSS_CONFIG=standalone.xml[0m
+node1     [37m+fi[0m
+node1     [37m+[0m
+node1     [37m+JBOSS_SCRIPT=$JBOSS_HOME/bin/standalone.sh[0m
+node1     [37m+[0m
+node1     [37m+prog='jboss-as'[0m
+node1     [37m+[0m
+node1     [37m+CMD_PREFIX=''[0m
+node1     [37m+[0m
+node1     [37m+if [ ! -z "$JBOSS_USER" ]; then[0m
+node1     [37m+  if [ -x /etc/rc.d/init.d/functions ]; then[0m
+node1     [37m+    CMD_PREFIX="daemon --user $JBOSS_USER"[0m
+node1     [37m+  else[0m
+node1     [37m+    CMD_PREFIX="su - $JBOSS_USER -c"[0m
+node1     [37m+  fi[0m
+node1     [37m+fi[0m
+node1     [37m+[0m
+node1     [37m+start() {[0m
+node1     [37m+  echo -n "Starting $prog: "[0m
+node1     [37m+  if [ -f $JBOSS_PIDFILE ]; then[0m
+node1     [37m+    read ppid < $JBOSS_PIDFILE[0m
+node1     [37m+    if [ `ps --pid $ppid 2> /dev/null | grep -c $ppid 2> /dev/null` -eq '1' ]; then[0m
+node1     [37m+      echo -n "$prog is already running"[0m
+node1     [37m+      failure[0m
+node1     [37m+      echo[0m
+node1     [37m+      return 1 [0m
+node1     [37m+    else[0m
+node1     [37m+      rm -f $JBOSS_PIDFILE[0m
+node1     [37m+    fi[0m
+node1     [37m+  fi[0m
+node1     [37m+  mkdir -p $(dirname $JBOSS_CONSOLE_LOG)[0m
+node1     [37m+  cat /dev/null > $JBOSS_CONSOLE_LOG[0m
+node1     [37m+[0m
+node1     [37m+  mkdir -p $(dirname $JBOSS_PIDFILE)[0m
+node1     [37m+  chown $JBOSS_USER $(dirname $JBOSS_PIDFILE) || true[0m
+node1     [37m+  #$CMD_PREFIX JBOSS_PIDFILE=$JBOSS_PIDFILE $JBOSS_SCRIPT 2>&1 > $JBOSS_CONSOLE_LOG &[0m
+node1     [37m+  #$CMD_PREFIX JBOSS_PIDFILE=$JBOSS_PIDFILE $JBOSS_SCRIPT &[0m
+node1     [37m+[0m
+node1     [37m+  if [ ! -z "$JBOSS_USER" ]; then[0m
+node1     [37m+    if [ -x /etc/rc.d/init.d/functions ]; then[0m
+node1     [37m+      daemon --user $JBOSS_USER LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=$JBOSS_PIDFILE $JBOSS_SCRIPT -c $JBOSS_CONFIG 2>&1 > $JBOSS_CONSOLE_LOG &[0m
+node1     [37m+    else[0m
+node1     [37m+      su - $JBOSS_USER -c "LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=$JBOSS_PIDFILE $JBOSS_SCRIPT -c $JBOSS_CONFIG" 2>&1 > $JBOSS_CONSOLE_LOG &[0m
+node1     [37m+    fi[0m
+node1     [37m+  fi[0m
+node1     [37m+[0m
+node1     [37m+  count=0[0m
+node1     [37m+  launched=false[0m
+node1     [37m+[0m
+node1     [37m+  until [ $count -gt $STARTUP_WAIT ][0m
+node1     [37m+  do[0m
+node1     [37m+    grep 'JBoss AS.*started in' $JBOSS_CONSOLE_LOG > /dev/null [0m
+node1     [37m+    if [ $? -eq 0 ] ; then[0m
+node1     [37m+      launched=true[0m
+node1     [37m+      break[0m
+node1     [37m+    fi [0m
+node1     [37m+    sleep 1[0m
+node1     [37m+    let count=$count+1;[0m
+node1     [37m+  done[0m
+node1     [37m+  [0m
+node1     [37m+  success[0m
+node1     [37m+  echo[0m
+node1     [37m+  return 0[0m
+node1     [37m+}[0m
+node1     [37m+[0m
+node1     [37m+stop() {[0m
+node1     [37m+  echo -n $"Stopping $prog: "[0m
+node1     [37m+  count=0;[0m
+node1     [37m+[0m
+node1     [37m+  if [ -f $JBOSS_PIDFILE ]; then[0m
+node1     [37m+    read kpid < $JBOSS_PIDFILE[0m
+node1     [37m+    let kwait=$SHUTDOWN_WAIT[0m
+node1     [37m+[0m
+node1     [37m+    # Try issuing SIGTERM[0m
+node1     [37m+[0m
+node1     [37m+    kill -15 $kpid[0m
+node1     [37m+    until [ `ps --pid $kpid 2> /dev/null | grep -c $kpid 2> /dev/null` -eq '0' ] || [ $count -gt $kwait ][0m
+node1     [37m+    do[0m
+node1     [37m+      sleep 1[0m
+node1     [37m+      let count=$count+1;[0m
+node1     [37m+    done[0m
+node1     [37m+[0m
+node1     [37m+    if [ $count -gt $kwait ]; then[0m
+node1     [37m+      kill -9 $kpid[0m
+node1     [37m+    fi[0m
+node1     [37m+  fi[0m
+node1     [37m+  rm -f $JBOSS_PIDFILE[0m
+node1     [37m+  success[0m
+node1     [37m+  echo[0m
+node1     [37m+}[0m
+node1     [37m+[0m
+node1     [37m+status() {[0m
+node1     [37m+  if [ -f $JBOSS_PIDFILE ]; then[0m
+node1     [37m+    read ppid < $JBOSS_PIDFILE[0m
+node1     [37m+    if [ `ps --pid $ppid 2> /dev/null | grep -c $ppid 2> /dev/null` -eq '1' ]; then[0m
+node1     [37m+      echo "$prog is running (pid $ppid)"[0m
+node1     [37m+      return 0[0m
+node1     [37m+    else[0m
+node1     [37m+      echo "$prog dead but pid file exists"[0m
+node1     [37m+      return 1[0m
+node1     [37m+    fi[0m
+node1     [37m+  fi[0m
+node1     [37m+  echo "$prog is not running"[0m
+node1     [37m+  return 3[0m
+node1     [37m+}[0m
+node1     [37m+[0m
+node1     [37m+case "$1" in[0m
+node1     [37m+  start)[0m
+node1     [37m+      start[0m
+node1     [37m+      ;;[0m
+node1     [37m+  stop)[0m
+node1     [37m+      stop[0m
+node1     [37m+      ;;[0m
+node1     [37m+  restart)[0m
+node1     [37m+      $0 stop[0m
+node1     [37m+      $0 start[0m
+node1     [37m+      ;;[0m
+node1     [37m+  status)[0m
+node1     [37m+      status[0m
+node1     [37m+      ;;[0m
+node1     [37m+  *)[0m
+node1     [37m+      ## If no parameters are given, print which are avaiable.[0m
+node1     [37m+      echo "Usage: $0 {start|stop|status|restart|reload}"[0m
+node1     [37m+      exit 1[0m
+node1     [37m+      ;;[0m
+node1     [37m+esac[0m[2017-04-10T12:41:55+01:00] INFO: template[/etc/init.d/jboss] owner changed to 0
+node1 [2017-04-10T12:41:55+01:00] INFO: template[/etc/init.d/jboss] group changed to 0
+node1 [2017-04-10T12:41:55+01:00] INFO: template[/etc/init.d/jboss] mode changed to 755
+node1 
+node1     [32m- change mode from '' to '0755'[0m
+node1     [32m- change owner from '' to 'root'[0m
+node1     [32m- change group from '' to 'root'[0m
+node1 [0m  * service[jboss] action start[2017-04-10T12:41:55+01:00] INFO: Processing service[jboss] action start (jboss::configure line 29)
+node1 [2017-04-10T12:42:02+01:00] INFO: service[jboss] started
+node1 
+node1     [32m- start service service[jboss][0m
+node1 [0mRecipe: deploy::default[0m
+node1   * remote_file[/tmp/hudson.zip] action create_if_missing[2017-04-10T12:42:02+01:00] INFO: Processing remote_file[/tmp/hudson.zip] action create_if_missing (deploy::default line 7)
+node1  (up to date)
+node1   * yum_package[unzip] action install[2017-04-10T12:42:02+01:00] INFO: Processing yum_package[unzip] action install (deploy::default line 14)
+node1  (up to date)
+node1   * execute[unarchive_app] action run[2017-04-10T12:42:02+01:00] INFO: Processing execute[unarchive_app] action run (deploy::default line 18)
+node1 
+node1     [execute] Archive:  /tmp/hudson.zip
+node1                 inflating: /opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.war  
+node1                 inflating: /opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml  
+node1 [2017-04-10T12:42:03+01:00] INFO: execute[unarchive_app] ran successfully
+node1     [32m- execute unzip /tmp/hudson.zip -d /opt/jboss-as-7.1.1.Final/standalone/deployments/[0m
+node1 [0m  * execute[change owner for app] action run[2017-04-10T12:42:03+01:00] INFO: Processing execute[change owner for app] action run (deploy::default line 23)
+node1 [2017-04-10T12:42:03+01:00] INFO: execute[change owner for app] ran successfully
+node1 
+node1     [32m- execute chown -R jboss:jboss /opt/jboss-as-7.1.1.Final/standalone/deployments/[0m
+node1 [0m  * template[/opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml] action create[2017-04-10T12:42:03+01:00] INFO: Processing template[/opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml] action create (deploy::default line 29)
+node1 [2017-04-10T12:42:03+01:00] INFO: template[/opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml] backed up to /var/chef/backup/opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml.chef-20170410124203.373666
+node1 [2017-04-10T12:42:03+01:00] INFO: template[/opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml] updated file contents /opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml
+node1 
+node1     [32m- update content in file /opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml from 0bed72 to 3a6bf8[0m
+node1     [37m--- /opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml	2014-01-16 15:35:44.000000000 +0000[0m
+node1     [37m+++ /opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/.chef-hudson20170410-15044-dn09rs.xml	2017-04-10 12:42:03.370849026 +0100[0m
+node1     [37m@@ -12,13 +12,10 @@[0m
+node1     [37m  <services>[0m
+node1     [37m     <framework>[0m
+node1     [37m       <type>Java EE</type>[0m
+node1     [37m-       <engine>Tomcat-7.0.12</engine>[0m
+node1     [37m+       <engine>jboss</engine>[0m
+node1     [37m       <no-of-nodes>1</no-of-nodes>[0m
+node1     [37m       <max-nodes>2</max-nodes>[0m
+node1     [37m     </framework>[0m
+node1     [37m-    <elastic-load-balancer>[0m
+node1     [37m-      <engine>Nginx-1.2</engine>[0m
+node1     [37m-    </elastic-load-balancer>[0m
+node1     [37m   </services>[0m
+node1     [37m </cumulogic-app>[0m
+node1 [0m[2017-04-10T12:42:03+01:00] INFO: template[/opt/jboss-as-7.1.1.Final/standalone/deployments/hudson/hudson.xml] sending restart action to service[jboss] (immediate)
+node1 Recipe: jboss::configure[0m
+node1   * service[jboss] action restart[2017-04-10T12:42:03+01:00] INFO: Processing service[jboss] action restart (jboss::configure line 29)
+node1 [2017-04-10T12:42:13+01:00] INFO: service[jboss] restarted
+node1 
+node1     [32m- restart service service[jboss][0m
+node1 [0m[2017-04-10T12:42:14+01:00] INFO: Chef Run complete in 160.978439735 seconds
+node1 [0m
+node1 Running handlers:[0m
+node1 [2017-04-10T12:42:15+01:00] INFO: Running report handlers
+node1 Running handlers complete
+node1 [0m[2017-04-10T12:42:15+01:00] INFO: Report handlers complete
+node1 Chef Client finished, 15/23 resources updated in 02 minutes 46 seconds[0m
+node1 [2017-04-10T12:42:15+01:00] INFO: Sending resource update report (run-id: 1c25383c-a114-4c58-9b77-c92e7f934f34)
+
+
+
+[vagrant@node1 opt]$ curl -IL localhost:8080/hudson/
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+X-Hudson: 2.0.0
+X-Hudson-CLI-Port: 41899
+Expires: 0
+X-Hudson-Theme: default
+Content-Type: text/html;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Mon, 10 Apr 2017 11:52:35 GMT
+
