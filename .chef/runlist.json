@@ -1,0 +1,3 @@
+{
+"run_list": ["recipe[tomcat::default]", "recipe[web_apache::default]", "recipe[deploy::default]"]
+}
