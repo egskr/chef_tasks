@@ -1,0 +1,192 @@
+[root@workstation ~]# knife bootstrap node3 -N node3 -x root -P vagrant -r 'role[Apache_Web_Server]' -E 'web_server'
+
+Node node3 exists, overwrite it? (Y/N) y
+Client node3 exists, overwrite it? (Y/N) y
+Creating new client for node3
+Creating new node for node3
+Connecting to node3
+node3 -----> Existing Chef installation detected
+node3 Starting the first Chef Client run...
+node3 [2017-04-11T16:48:48+01:00] INFO: Forking chef instance to converge...
+node3 Starting Chef Client, version 12.19.36
+node3 [2017-04-11T16:48:48+01:00] INFO: *** Chef 12.19.36 ***
+node3 [2017-04-11T16:48:48+01:00] INFO: Platform: x86_64-linux
+node3 [2017-04-11T16:48:48+01:00] INFO: Chef-client pid: 4146
+node3 [2017-04-11T16:48:50+01:00] INFO: Setting the run_list to ["role[Apache_Web_Server]"] from CLI options
+node3 [2017-04-11T16:48:50+01:00] INFO: Run List is [role[Apache_Web_Server]]
+node3 [2017-04-11T16:48:50+01:00] INFO: Run List expands to [web::default]
+node3 [2017-04-11T16:48:50+01:00] INFO: Starting Chef Run for node3
+node3 [2017-04-11T16:48:50+01:00] INFO: Running start handlers
+node3 [2017-04-11T16:48:50+01:00] INFO: Start handlers complete.
+node3 [2017-04-11T16:48:51+01:00] INFO: HTTP Request Returned 404 Not Found: 
+node3 [2017-04-11T16:48:51+01:00] INFO: Error while reporting run start to Data Collector. URL: https://chef_server/organizations/egor/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+node3 resolving cookbooks for run list: ["web::default"]
+node3 [2017-04-11T16:48:51+01:00] INFO: Loading cookbooks [web@0.1.0, web_nginx@0.1.0, web_apache@0.1.0]
+node3 Synchronizing Cookbooks:
+node3   - web (0.1.0)
+node3   - web_nginx (0.1.0)
+node3   - web_apache (0.1.0)
+node3 Installing Cookbook Gems:
+node3 Compiling Cookbooks...
+node3 Converging 1 resources
+node3 Recipe: web_apache::default
+node3   * web[web_apache] action install[2017-04-11T16:48:51+01:00] INFO: Processing web[web_apache] action install (web_apache::default line 7)
+node3  (up to date)
+node3   * web[web_apache] action setup[2017-04-11T16:48:51+01:00] INFO: Processing web[web_apache] action setup (web_apache::default line 7)
+node3  (up to date)
+node3   * web[web_apache] action start[2017-04-11T16:48:51+01:00] INFO: Processing web[web_apache] action start (web_apache::default line 7)
+node3  (up to date)
+node3   * yum_package[httpd] action install[2017-04-11T16:48:51+01:00] INFO: Processing yum_package[httpd] action install (/var/chef/cache/cookbooks/web_apache/providers/default.rb line 2)
+node3 [2017-04-11T16:48:54+01:00] INFO: yum_package[httpd] installing httpd-2.2.15-59.el6.centos from base repository
+node3 [2017-04-11T16:48:56+01:00] INFO: yum_package[httpd] installed httpd at 2.2.15-59.el6.centos
+node3 
+node3     - install version 2.2.15-59.el6.centos of package httpd
+node3   * service[httpd] action enable[2017-04-11T16:48:56+01:00] INFO: Processing service[httpd] action enable (/var/chef/cache/cookbooks/web_apache/providers/default.rb line 32)
+node3 [2017-04-11T16:48:56+01:00] INFO: service[httpd] enabled
+node3 
+node3     - enable service service[httpd]
+node3   * template[/var/www/html/index.html] action create[2017-04-11T16:48:56+01:00] INFO: Processing template[/var/www/html/index.html] action create (/var/chef/cache/cookbooks/web_apache/providers/default.rb line 36)
+node3  (up to date)
+node3   * service[httpd] action start[2017-04-11T16:48:56+01:00] INFO: Processing service[httpd] action start (/var/chef/cache/cookbooks/web_apache/providers/default.rb line 14)
+node3 [2017-04-11T16:48:57+01:00] INFO: service[httpd] started
+node3 
+node3     - start service service[httpd]
+node3 [2017-04-11T16:48:57+01:00] INFO: Chef Run complete in 6.25740134 seconds
+node3 
+node3 Running handlers:
+node3 [2017-04-11T16:48:57+01:00] INFO: Running report handlers
+node3 Running handlers complete
+node3 [2017-04-11T16:48:57+01:00] INFO: Report handlers complete
+node3 
+node3 Deprecated features used!
+node3   Using an LWRP provider by its name (WebApache) directly is no longer supported in Chef 12 and will be removed.  Use Chef::ProviderResolver.new(node, resource, action) instead. at 1 location:
+node3     - /var/chef/cache/cookbooks/web_apache/recipes/default.rb:9:in `block in from_file'
+node3    See https://docs.chef.io/deprecations_custom_resource_cleanups.html for further details.
+node3   Cloning resource attributes for service[httpd] from prior resource
+node3 Previous service[httpd]: /var/chef/cache/cookbooks/web_apache/providers/default.rb:32:in `block in class_from_file'
+node3 Current  service[httpd]: /var/chef/cache/cookbooks/web_apache/providers/default.rb:14:in `block in class_from_file' at 1 location:
+node3     - /var/chef/cache/cookbooks/web_apache/providers/default.rb:14:in `block in class_from_file'
+node3    See https://docs.chef.io/deprecations_resource_cloning.html for further details.
+node3 
+node3 Chef Client finished, 3/7 resources updated in 08 seconds
+node3 [2017-04-11T16:48:57+01:00] INFO: Sending resource update report (run-id: 5076454c-e7b2-4799-87b2-ba6c0d27ac22)
+[root@workstation ~]# 
+
+
+
+[root@node3 ~]# curl localhost
+############### Egor #####################
+APACHE	
+
+
+
+
+
+
+
+
+[root@workstation ~]# knife bootstrap node3 -N node3 -x root -P vagrant -r 'role[Nginx_Web_Server]' -E 'web_server'
+
+Node node3 exists, overwrite it? (Y/N) y
+Client node3 exists, overwrite it? (Y/N) y
+Creating new client for node3
+Creating new node for node3
+Connecting to node3
+node3 -----> Existing Chef installation detected
+node3 Starting the first Chef Client run...
+node3 [2017-04-11T16:51:31+01:00] INFO: Forking chef instance to converge...
+node3 Starting Chef Client, version 12.19.36
+node3 [2017-04-11T16:51:31+01:00] INFO: *** Chef 12.19.36 ***
+node3 [2017-04-11T16:51:31+01:00] INFO: Platform: x86_64-linux
+node3 [2017-04-11T16:51:31+01:00] INFO: Chef-client pid: 4573
+node3 [2017-04-11T16:51:35+01:00] INFO: Setting the run_list to ["role[Nginx_Web_Server]"] from CLI options
+node3 [2017-04-11T16:51:35+01:00] INFO: Run List is [role[Nginx_Web_Server]]
+node3 [2017-04-11T16:51:35+01:00] INFO: Run List expands to [web::default]
+node3 [2017-04-11T16:51:35+01:00] INFO: Starting Chef Run for node3
+node3 [2017-04-11T16:51:35+01:00] INFO: Running start handlers
+node3 [2017-04-11T16:51:35+01:00] INFO: Start handlers complete.
+node3 [2017-04-11T16:51:35+01:00] INFO: HTTP Request Returned 404 Not Found: 
+node3 [2017-04-11T16:51:35+01:00] INFO: Error while reporting run start to Data Collector. URL: https://chef_server/organizations/egor/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+node3 resolving cookbooks for run list: ["web::default"]
+node3 [2017-04-11T16:51:35+01:00] INFO: Loading cookbooks [web@0.1.0, web_nginx@0.1.0, web_apache@0.1.0]
+node3 Synchronizing Cookbooks:
+node3   - web_nginx (0.1.0)
+node3   - web_apache (0.1.0)
+node3   - web (0.1.0)
+node3 Installing Cookbook Gems:
+node3 Compiling Cookbooks...
+node3 Converging 1 resources
+node3 Recipe: web_nginx::default
+node3   * web[web_nginx] action install[2017-04-11T16:51:35+01:00] INFO: Processing web[web_nginx] action install (web_nginx::default line 7)
+node3  (up to date)
+node3   * web[web_nginx] action setup[2017-04-11T16:51:35+01:00] INFO: Processing web[web_nginx] action setup (web_nginx::default line 7)
+node3  (up to date)
+node3   * web[web_nginx] action start[2017-04-11T16:51:35+01:00] INFO: Processing web[web_nginx] action start (web_nginx::default line 7)
+node3  (up to date)
+node3   * yum_package[nginx] action install[2017-04-11T16:51:35+01:00] INFO: Processing yum_package[nginx] action install (/var/chef/cache/cookbooks/web_nginx/providers/default.rb line 2)
+node3 [2017-04-11T16:51:37+01:00] INFO: yum_package[nginx] installing nginx-1.10.3-1.el6.ngx from nginx repository
+node3 [2017-04-11T16:51:41+01:00] INFO: yum_package[nginx] installed nginx at 1.10.3-1.el6.ngx
+node3 
+node3     - install version 1.10.3-1.el6.ngx of package nginx
+node3   * template[/usr/share/nginx/html/index.html] action create[2017-04-11T16:51:41+01:00] INFO: Processing template[/usr/share/nginx/html/index.html] action create (/var/chef/cache/cookbooks/web_nginx/providers/default.rb line 34)
+node3 [2017-04-11T16:51:41+01:00] INFO: template[/usr/share/nginx/html/index.html] backed up to /var/chef/backup/usr/share/nginx/html/index.html.chef-20170411165141.269022
+node3 [2017-04-11T16:51:41+01:00] INFO: template[/usr/share/nginx/html/index.html] updated file contents /usr/share/nginx/html/index.html
+node3 
+node3     - update content in file /usr/share/nginx/html/index.html from 38ffd4 to dac490
+node3     --- /usr/share/nginx/html/index.html	2017-01-31 15:38:08.000000000 +0000
+node3     +++ /usr/share/nginx/html/.chef-index20170411-4573-13y30zl.html	2017-04-11 16:51:41.264047503 +0100
+node3     @@ -1,26 +1,4 @@
+node3     -<!DOCTYPE html>
+node3     -<html>
+node3     -<head>
+node3     -<title>Welcome to nginx!</title>
+node3     -<style>
+node3     -    body {
+node3     -        width: 35em;
+node3     -        margin: 0 auto;
+node3     -        font-family: Tahoma, Verdana, Arial, sans-serif;
+node3     -    }
+node3     -</style>
+node3     -</head>
+node3     -<body>
+node3     -<h1>Welcome to nginx!</h1>
+node3     -<p>If you see this page, the nginx web server is successfully installed and
+node3     -working. Further configuration is required.</p>
+node3     +############### Egor #####################
+node3     +NGINX	
+node3      
+node3     -<p>For online documentation and support please refer to
+node3     -<a href="http://nginx.org/">nginx.org</a>.<br/>
+node3     -Commercial support is available at
+node3     -<a href="http://nginx.com/">nginx.com</a>.</p>
+node3     -
+node3     -<p><em>Thank you for using nginx.</em></p>
+node3     -</body>
+node3     -</html>
+node3   * service[nginx] action start[2017-04-11T16:51:41+01:00] INFO: Processing service[nginx] action start (/var/chef/cache/cookbooks/web_nginx/providers/default.rb line 15)
+node3 [2017-04-11T16:51:41+01:00] INFO: service[nginx] started
+node3 
+node3     - start service service[nginx]
+node3 [2017-04-11T16:51:41+01:00] INFO: Chef Run complete in 6.18304128 seconds
+node3 
+node3 Running handlers:
+node3 [2017-04-11T16:51:41+01:00] INFO: Running report handlers
+node3 Running handlers complete
+node3 [2017-04-11T16:51:41+01:00] INFO: Report handlers complete
+node3 
+node3 Deprecated features used!
+node3   Using an LWRP provider by its name (WebNginx) directly is no longer supported in Chef 12 and will be removed.  Use Chef::ProviderResolver.new(node, resource, action) instead. at 1 location:
+node3     - /var/chef/cache/cookbooks/web_nginx/recipes/default.rb:9:in `block in from_file'
+node3    See https://docs.chef.io/deprecations_custom_resource_cleanups.html for further details.
+node3 
+node3 Chef Client finished, 3/6 resources updated in 09 seconds
+node3 [2017-04-11T16:51:41+01:00] INFO: Sending resource update report (run-id: cd3a3e7c-e670-4db2-a1cf-4efdb09f037a)
+[root@workstation ~]# 
+
+
+
+[root@node3 ~]# curl localhost
+############### Egor #####################
+NGINX	
+
+
